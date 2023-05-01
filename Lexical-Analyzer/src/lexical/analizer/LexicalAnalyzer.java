@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 /**
  * Analizador léxico Jaguar
- * Proyecto compiladores, fase 2
+ * Proyecto compiladores, fase 2, grupo 4
  */
 public class LexicalAnalyzer {
     /**
@@ -19,6 +19,10 @@ public class LexicalAnalyzer {
     FileInputStream fstream = new FileInputStream("src/lexical/analizer/textfile");
     BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
+    // Abre el IDE
+    IDE ide = new IDE();
+    ide.show();
+    
     String strLine;
     ArrayList<String> lines = new ArrayList<String> ();
 
@@ -35,5 +39,4 @@ public class LexicalAnalyzer {
     int resp = token.lexicAnalizer();
     
     }
-    
 }
