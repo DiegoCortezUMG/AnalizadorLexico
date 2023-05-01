@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,7 +39,7 @@ public class IDE extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextoEntrada = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        CargaArchivo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         SalidaLexico = new javax.swing.JTextArea();
@@ -54,10 +55,10 @@ public class IDE extends javax.swing.JFrame {
         TextoEntrada.setRows(5);
         jScrollPane1.setViewportView(TextoEntrada);
 
-        jButton2.setText("Cargar archivo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CargaArchivo.setText("Cargar archivo");
+        CargaArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CargaArchivoActionPerformed(evt);
             }
         });
 
@@ -85,7 +86,7 @@ public class IDE extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
+                            .addComponent(CargaArchivo)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -112,7 +113,7 @@ public class IDE extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(CargaArchivo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -131,8 +132,8 @@ public class IDE extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    private void CargaArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaArchivoActionPerformed
+        // EL archivo se imprime a la jTextArea
     FileInputStream fstream = null;
         try {
             fstream = new FileInputStream("src/lexical/analizer/textfile");
@@ -148,12 +149,12 @@ public class IDE extends javax.swing.JFrame {
             Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
         }
     BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CargaArchivoActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws FileNotFoundException, IOException{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -176,7 +177,28 @@ public class IDE extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(IDE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+    // Abre el archivo
+    FileInputStream fstream = new FileInputStream("src/lexical/analizer/textfile");
+    BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
+    /* Abre el IDE
+    IDE ide = new IDE();
+    ide.show();*/
+    
+    String strLine;
+    ArrayList<String> lines = new ArrayList<String> ();
+
+    // Lee línea por línea
+    while ((strLine = br.readLine()) != null)   {
+      lines.add(strLine);
+        System.out.println(strLine);
+    }
+    // Cierra el flujo de tokens
+    br.close();
+    
+    Tokens token = new Tokens(lines);
+    System.out.println();
+    int resp = token.lexicAnalizer();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -186,10 +208,10 @@ public class IDE extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CargaArchivo;
     private javax.swing.JTextArea SalidaLexico;
     private javax.swing.JTextArea TextoEntrada;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
