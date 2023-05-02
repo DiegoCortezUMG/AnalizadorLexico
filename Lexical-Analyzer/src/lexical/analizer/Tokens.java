@@ -54,13 +54,13 @@ public class Tokens {
                             //System.out.println(lastToken+ " | "+ result + " |" + i);
                         }
                         else {
-                            System.err.println("Error: No pertenece al lenguage (1)");
+                            System.err.println("Error: No pertenece al lenguage");
                             //System.err.println("Linea: "+i+", Estado: "+result+" -> "+subToken);
                             return 0;
                         }
                     }
                     else {
-                        System.err.println("Error: No pertenece al languaje (2)");
+                        System.err.println("Error: No pertenece al languaje");
                         //System.err.println("Linea: "+i+", Estado: " + result + " -> "+subToken+"");
                         return 0;
                     }
@@ -99,7 +99,7 @@ public class Tokens {
             }
             return "Identificador";
         } else if (split.matches("\\{(?s).*?")) {
-            return "no pertenece al lenguaje/n";
+            return "error: no pertenece al lenguaje/n";
         } else{
         return rojo+"error: token desconocido"+reset;
         }
