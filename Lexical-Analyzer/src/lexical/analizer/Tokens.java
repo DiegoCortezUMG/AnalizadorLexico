@@ -2,13 +2,19 @@ package lexical.analizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+
 /**
  * Definición de tokens y patrones
  */
-public class Tokens {
+public class Tokens{
     public static final String reset = "\u001B[0m";
     public static final String rojo = "\u001B[31m";
-
+    File salida = new File("src/lexical/analizer/SalidaLex");
+    PrintStream stream;
+    
     ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("sellado","abstracto","clase", "imprimir", "ent", "escribir", "booleano", "const", "raiz",
                     "flota","doble","bit", "si", "then", "demas", "durante", "hacer", "mientras", "publico", "privado", "interno", "protegido", "vacia","vacio", "larg","cad","."));
     //aquí el punto se utiliza para marcar el final de una línea de código
@@ -27,8 +33,10 @@ public class Tokens {
 
     ArrayList<String> myProgram = null;
 
-    public Tokens(ArrayList<String> myArrayList) {
+    public Tokens(ArrayList<String> myArrayList) throws IOException{
+        this.stream = new PrintStream(salida);
         this.myProgram = myArrayList;
+        System.setOut(stream);
     }
     public int lexicAnalizer() {
         for(int i = 0; i < this.myProgram.size(); i++) {
@@ -65,8 +73,9 @@ public class Tokens {
                         return 0;
                     }
                 }
-            }
         }
+}
+                
         return 1;
     }
     private String discardComments(String line) {
@@ -74,34 +83,35 @@ public class Tokens {
     }
     private String checkToken(String split) {
         if (this.palabrasReservadas.contains(split)) {
-            return "Palabra reservada";
+            System.out.println("palabra reservada");
         } else if (split.matches(this.textoString)) {
-            return "cadena de texto";
+            System.out.println("texto string");
         }else if (this.parentesis.contains(split)) {
-            return "parentesis";
+            System.out.println("paréntesis");
         } else if (this.asignacion.contains(split)) {
-            return "asignación";
+            System.out.println("asignación");
         } else if (this.delimitadores.contains(split)) {
-            return "Delimitador";
+            System.out.println("delimitador");
         } else if (this.comparadores.contains((split))) {
-            return "Comparador";
+            System.out.println("comparador");
         } else if (this.operadoresM.contains(split)) {
-            return "Operación arimética";
+            System.out.println("operador arimético");
         } else if (this.simbolo.contains(split)) {
-            return "caracter especial";
+            System.out.println("caracter especial");
         } else if (split.matches(this.DigitosInt)){
-            return "Entero";
+            System.out.println("entero");
         } else if (split.matches(this.DigitosFloat)) {
-            return "Decimal";
+            System.out.println("decimal");
         } else if (split.matches(this.identificador)) {
             if (this.booleanos.contains(split)) {
-                return "Booleano";
+                System.out.println("booleano");
             }
-            return "Identificador";
+            System.out.println("identificador");
         } else if (split.matches("\\{(?s).*?")) {
-            return "error: no pertenece al lenguaje/n";
+            System.out.println("error: no pertenece al lenguaje/n");
         } else{
         return rojo+"error: token desconocido"+reset;
         }
+        return null;
     }
 }

@@ -1,9 +1,2 @@
-@var
-print
-@valor1 =:= ent
-@valor2 =:= flota
-@valor3 =:= 11
-@a =:= 10.0
-si ( @a > 0 ) {
-imprimir ( "positivo" )
-}
+
+identificador

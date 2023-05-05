@@ -94,19 +94,19 @@ public class IDE extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CargaArchivo)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(9, 9, 9)
-                                .addComponent(botonGuardar)))
+                            .addComponent(jLabel2))
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(254, 254, 254))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botonGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CargaArchivo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -114,21 +114,20 @@ public class IDE extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(CargaArchivo)
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(botonGuardar)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonGuardar)
+                    .addComponent(CargaArchivo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -167,6 +166,21 @@ public class IDE extends javax.swing.JFrame {
         Tokens token = new Tokens(lines);
         System.out.println();
         int resp = token.lexicAnalizer();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //primero se limpia el archivo
+        //Se imprime el resultado (escrito al "archivo SalidaLex") en la otra text area
+        try {
+            FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
+            String nombre = archivo.getPath(); // obtiene la ruta del archivo seleccionado
+            FileReader lector = new FileReader(nombre);
+            BufferedReader lectorb = new BufferedReader(lector);
+            SalidaLexico.read(lectorb,null);
+            lectorb.close();
+            SalidaLexico.requestFocus();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -216,13 +230,10 @@ public class IDE extends javax.swing.JFrame {
         }
         //</editor-fold>
     // Abre el archivo
-    FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
+    /*FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
     File salida = new File("src/lexical/analizer/SalidaLex");;
     BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
-    /* Abre el IDE
-    IDE ide = new IDE();
-    ide.show();*/
     
     String strLine;
     ArrayList<String> lines = new ArrayList<String> ();
