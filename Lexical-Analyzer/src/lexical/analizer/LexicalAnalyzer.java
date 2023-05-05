@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class LexicalAnalyzer {
     /**
      * @param args the command line arguments
-     */
+     
     public static void main(String[] args) throws FileNotFoundException, IOException {
     // Abre el archivo
     FileInputStream fstream = new FileInputStream("src/lexical/analizer/textfile");
@@ -38,5 +38,5 @@ public class LexicalAnalyzer {
     System.out.println();
     int resp = token.lexicAnalizer();
     
-    }
+    }*/
 }
