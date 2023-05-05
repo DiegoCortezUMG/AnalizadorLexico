@@ -46,18 +46,19 @@ public class Tokens{
             for (int j = 0; j < splited.length; j++) {
                 String token = splited[j];
                 String result = checkToken(token);
-                if(!result.equals("desconocido (1)")) {
+                if (null != result) {
+                if(!result.equals("desconocido)")) {
                     System.out.println(token + " | "+ result + " |" + i);
                 }
                 else {
                     String subToken = token.substring(0, token.length() - 1);
                     result = checkToken(subToken);
-                    if(!result.equals("desconocido (2)")) {
+                    if(!result.equals("desconocido")) {
                         System.out.println(result + " : " +subToken);
                         //System.out.println(subToken + " | "+ result + " |" + i);
                         String lastToken = token.substring(token.length() - 1, token.length());
                         result = checkToken(lastToken);
-                        if(!result.equals("desconocido (3)")) {
+                        if(!result.equals("desconocido")) {
                             System.out.println(result + " : " +lastToken);
                             //System.out.println(lastToken+ " | "+ result + " |" + i);
                         }
@@ -74,8 +75,9 @@ public class Tokens{
                     }
                 }
         }
+                System.out.print(token + " | "+ result + " |" + i);
+                }
 }
-                
         return 1;
     }
     private String discardComments(String line) {
@@ -110,8 +112,8 @@ public class Tokens{
         } else if (split.matches("\\{(?s).*?")) {
             System.out.println("error: no pertenece al lenguaje/n");
         } else{
-        return rojo+"error: token desconocido"+reset;
+            System.out.println(rojo+"\"error: token desconocido\""+reset);
         }
-        return null;
+        return "token";
     }
 }

@@ -68,6 +68,7 @@ public class IDE extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel1.setText("IDE: Jaguar");
 
+        SalidaLexico.setEditable(false);
         SalidaLexico.setColumns(20);
         SalidaLexico.setRows(5);
         jScrollPane2.setViewportView(SalidaLexico);
@@ -174,9 +175,9 @@ public class IDE extends javax.swing.JFrame {
         //primero se limpia el archivo
         //Se imprime el resultado (escrito al "archivo SalidaLex") en la otra text area
         try {
-            FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
-            String nombre = archivo.getPath(); // obtiene la ruta del archivo seleccionado
-            FileReader lector = new FileReader(nombre);
+            //FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
+            //String nombre = archivo.getPath(); // obtiene la ruta del archivo seleccionado
+            FileReader lector = new FileReader("src/lexical/analizer/SalidaLex");
             BufferedReader lectorb = new BufferedReader(lector);
             SalidaLexico.read(lectorb,null);
             lectorb.close();

@@ -1,2 +1,54 @@
 
 identificador
+@var | token |0
+@var | token |0[31m"error: token desconocido"[0m
+print | token |1
+print | token |1identificador
+@valor1 | token |2
+@valor1 | token |2comparador
+=:= | token |2
+=:= | token |2palabra reservada
+ent | token |2
+ent | token |2identificador
+@valor2 | token |3
+@valor2 | token |3comparador
+=:= | token |3
+=:= | token |3palabra reservada
+flota | token |3
+flota | token |3identificador
+@valor3 | token |4
+@valor3 | token |4comparador
+=:= | token |4
+=:= | token |4entero
+11 | token |4
+11 | token |4identificador
+@a | token |5
+@a | token |5comparador
+=:= | token |5
+=:= | token |5decimal
+10.0 | token |5
+10.0 | token |5palabra reservada
+si | token |6
+si | token |6paréntesis
+( | token |6
+( | token |6identificador
+@a | token |6
+@a | token |6comparador
+> | token |6
+> | token |6entero
+0 | token |6
+0 | token |6paréntesis
+) | token |6
+) | token |6delimitador
+{ | token |6
+{ | token |6palabra reservada
+imprimir | token |7
+imprimir | token |7paréntesis
+( | token |7
+( | token |7texto string
+"positivo" | token |7
+"positivo" | token |7paréntesis
+) | token |7
+) | token |7delimitador
+} | token |8
+} | token |8
