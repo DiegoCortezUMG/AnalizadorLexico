@@ -4,6 +4,11 @@
  */
 package lexical.analizer;
 
+/**
+ * Analizador léxico Jaguar
+ * Proyecto compiladores, fase 2, grupo 4
+ */
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,18 +19,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-
 /**
  *
- * @author Usuario
+ * @author Grupo 4 compiladores.
  */
 public class IDE extends javax.swing.JFrame {
-
     /**
      * Creates new form IDE
      */
@@ -48,7 +50,6 @@ public class IDE extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         SalidaLexico = new javax.swing.JTextArea();
-        botonGuardar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -72,13 +73,6 @@ public class IDE extends javax.swing.JFrame {
         SalidaLexico.setColumns(20);
         SalidaLexico.setRows(5);
         jScrollPane2.setViewportView(SalidaLexico);
-
-        botonGuardar.setText("Guardar");
-        botonGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGuardarActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setText("Código:");
@@ -105,8 +99,7 @@ public class IDE extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botonGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(79, 79, 79)
                         .addComponent(CargaArchivo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -126,9 +119,7 @@ public class IDE extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonGuardar)
-                    .addComponent(CargaArchivo))
+                .addComponent(CargaArchivo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -152,27 +143,25 @@ public class IDE extends javax.swing.JFrame {
             InputStream entrada = new FileInputStream(archivo); 
         // entrada convierte el archivo a texto ara que lea el analizador
             BufferedReader br = new BufferedReader(new InputStreamReader(entrada));
-        // Abre el IDE
         String strLine;
         ArrayList<String> lines = new ArrayList<String> ();
         //empieza el análisis léxico
         // Lee línea por línea
         while ((strLine = br.readLine()) != null)   {
           lines.add(strLine);
-            System.out.println(strLine);
+            //System.out.println(strLine);
         }
         // Cierra el flujo de tokens
         br.close();
         
         Tokens token = new Tokens(lines);
-        System.out.println();
+        //System.out.println();
         int resp = token.lexicAnalizer();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //primero se limpia el archivo
         //Se imprime el resultado (escrito al "archivo SalidaLex") en la otra text area
         try {
             //FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
@@ -189,20 +178,6 @@ public class IDE extends javax.swing.JFrame {
         }
     }
     }//GEN-LAST:event_CargaArchivoActionPerformed
-
-    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-        // TODO add your handling code here:
-        JFileChooser fc = new JFileChooser();
-        int returnVal = fc.showSaveDialog(this);
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-        File file = fc.getSelectedFile();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write(TextoEntrada.getText());
-        } catch (IOException ex) {
-            Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-    }//GEN-LAST:event_botonGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,7 +237,6 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JButton CargaArchivo;
     private javax.swing.JTextArea SalidaLexico;
     private javax.swing.JTextArea TextoEntrada;
-    private javax.swing.JButton botonGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
