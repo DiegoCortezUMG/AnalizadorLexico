@@ -1,0 +1,203 @@
+error: token desconocido
+jclase | token |0
+jclase | token |0error: token desconocido
+@ProgramaSumaPromedio. | token |0
+@ProgramaSumaPromedio. | token |0delimitador
+{ | token |1
+{ | token |1asignación
+ | token |2
+ | token |2error: token desconocido
+jestatico | token |2
+jestatico | token |2error: token desconocido
+jvoidi | token |2
+jvoidi | token |2error: token desconocido
+jprincipal(jcad[] | token |2
+jprincipal(jcad[] | token |2error: token desconocido
+arg). | token |2
+arg). | token |2asignación
+ | token |3
+ | token |3delimitador
+{ | token |3
+{ | token |3asignación
+ | token |4
+ | token |4clase
+jEscribor( | token |4
+jEscribor( | token |4error: token desconocido
+"Ingrese | token |4
+"Ingrese | token |4error: token desconocido
+una | token |4
+una | token |4error: token desconocido
+lista | token |4
+lista | token |4error: token desconocido
+de | token |4
+de | token |4error: token desconocido
+números | token |4
+números | token |4palabra reservada
+enteros | token |4
+enteros | token |4error: token desconocido
+separados | token |4
+separados | token |4error: token desconocido
+por | token |4
+por | token |4error: token desconocido
+espacios:" | token |4
+espacios:" | token |4error: token desconocido
+). | token |4
+). | token |4asignación
+ | token |5
+ | token |5error: token desconocido
+jcad[] | token |5
+jcad[] | token |5identificador
+@numerosComoCadena | token |5
+@numerosComoCadena | token |5asignación
+= | token |5
+= | token |5error: token desconocido
+jImprimir(). | token |5
+jImprimir(). | token |5error: token desconocido
+@divide(hola) | token |5
+@divide(hola) | token |5fin de sentencia
+. | token |5
+. | token |5error: token desconocido
+// | token |5
+// | token |5error: token desconocido
+Identificador | token |5
+Identificador | token |5error: token desconocido
+sin | token |5
+sin | token |5error: token desconocido
+@ | token |5
+@ | token |5asignación
+ | token |6
+ | token |6palabra reservada
+jent | token |6
+jent | token |6error: token desconocido
+suma | token |6
+suma | token |6asignación
+= | token |6
+= | token |6error: token desconocido
+1. | token |6
+1. | token |6asignación
+ | token |7
+ | token |7palabra reservada
+jent | token |7
+jent | token |7identificador
+@contador | token |7
+@contador | token |7asignación
+= | token |7
+= | token |7error: token desconocido
+~. | token |7
+~. | token |7asignación
+ | token |9
+ | token |9error: token desconocido
+jparacada | token |9
+jparacada | token |9error: token desconocido
+(jcad | token |9
+(jcad | token |9identificador
+@numeroComoCadena | token |9
+@numeroComoCadena | token |9error: token desconocido
+en | token |9
+en | token |9error: token desconocido
+@numerosComoCadena). | token |9
+@numerosComoCadena). | token |9asignación
+ | token |10
+ | token |10delimitador
+{ | token |10
+{ | token |10asignación
+ | token |11
+ | token |11palabra reservada
+jent | token |11
+jent | token |11error: token desconocido
+@numero. | token |11
+@numero. | token |11asignación
+ | token |13
+ | token |13error: token desconocido
+jsi | token |13
+jsi | token |13error: token desconocido
+(@contador | token |13
+(@contador | token |13comparador
+< | token |13
+< | token |13clase
+suma) | token |13
+suma) | token |13asignación
+ | token |14
+ | token |14delimitador
+{ | token |14
+{ | token |14asignación
+ | token |15
+ | token |15identificador
+@suma | token |15
+@suma | token |15error: token desconocido
++= | token |15
++= | token |15error: token desconocido
+numero. | token |15
+numero. | token |15asignación
+ | token |16
+ | token |16error: token desconocido
+contador++; | token |16
+contador++; | token |16asignación
+ | token |17
+ | token |17delimitador
+} | token |17
+} | token |17asignación
+ | token |18
+ | token |18delimitador
+} | token |18
+} | token |18asignación
+ | token |20
+ | token |20error: token desconocido
+jduble | token |20
+jduble | token |20identificador
+@promedio | token |20
+@promedio | token |20asignación
+= | token |20
+= | token |20error: token desconocido
+suma | token |20
+suma | token |20operador arimético
+/ | token |20
+/ | token |20error: token desconocido
+@contador. | token |20
+@contador. | token |20asignación
+ | token |22
+ | token |22error: token desconocido
+jescribi("La | token |22
+jescribi("La | token |22error: token desconocido
+suma | token |22
+suma | token |22error: token desconocido
+de | token |22
+de | token |22error: token desconocido
+los | token |22
+los | token |22error: token desconocido
+números | token |22
+números | token |22error: token desconocido
+es: | token |22
+es: | token |22error: token desconocido
+" | token |22
+" | token |22operador arimético
++ | token |22
++ | token |22error: token desconocido
+suma). | token |22
+suma). | token |22asignación
+ | token |23
+ | token |23error: token desconocido
+jEscribir("El | token |23
+jEscribir("El | token |23error: token desconocido
+promedio | token |23
+promedio | token |23error: token desconocido
+de | token |23
+de | token |23error: token desconocido
+los | token |23
+los | token |23error: token desconocido
+números | token |23
+números | token |23error: token desconocido
+es: | token |23
+es: | token |23error: token desconocido
+" | token |23
+" | token |23error: token desconocido
+# | token |23
+# | token |23error: token desconocido
+promedio). | token |23
+promedio). | token |23asignación
+ | token |24
+ | token |24delimitador
+} | token |24
+} | token |24delimitador
+} | token |25
+} | token |25
