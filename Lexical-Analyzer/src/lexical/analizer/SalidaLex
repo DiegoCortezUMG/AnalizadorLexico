@@ -2,9 +2,9 @@ error: token desconocido
 jclase | token |0
 jclase | token |0error: token desconocido
 @ProgramaSumaPromedio. | token |0
-@ProgramaSumaPromedio. | token |0delimitador
+@ProgramaSumaPromedio. | token |0delimitador/n
 { | token |1
-{ | token |1asignación
+{ | token |1asignación/n
  | token |2
  | token |2error: token desconocido
 jestatico | token |2
@@ -14,13 +14,13 @@ jvoidi | token |2error: token desconocido
 jprincipal(jcad[] | token |2
 jprincipal(jcad[] | token |2error: token desconocido
 arg). | token |2
-arg). | token |2asignación
+arg). | token |2asignación/n
  | token |3
- | token |3delimitador
+ | token |3delimitador/n
 { | token |3
-{ | token |3asignación
+{ | token |3asignación/n
  | token |4
- | token |4clase
+ | token |4error: token desconocido
 jEscribor( | token |4
 jEscribor( | token |4error: token desconocido
 "Ingrese | token |4
@@ -32,7 +32,7 @@ lista | token |4error: token desconocido
 de | token |4
 de | token |4error: token desconocido
 números | token |4
-números | token |4palabra reservada
+números | token |4palabra reservada/n
 enteros | token |4
 enteros | token |4error: token desconocido
 separados | token |4
@@ -42,19 +42,19 @@ por | token |4error: token desconocido
 espacios:" | token |4
 espacios:" | token |4error: token desconocido
 ). | token |4
-). | token |4asignación
+). | token |4asignación/n
  | token |5
  | token |5error: token desconocido
 jcad[] | token |5
-jcad[] | token |5identificador
+jcad[] | token |5identificador/n
 @numerosComoCadena | token |5
-@numerosComoCadena | token |5asignación
+@numerosComoCadena | token |5asignación/n
 = | token |5
 = | token |5error: token desconocido
 jImprimir(). | token |5
 jImprimir(). | token |5error: token desconocido
 @divide(hola) | token |5
-@divide(hola) | token |5fin de sentencia
+@divide(hola) | token |5fin de sentencia/n
 . | token |5
 . | token |5error: token desconocido
 // | token |5
@@ -64,97 +64,97 @@ Identificador | token |5error: token desconocido
 sin | token |5
 sin | token |5error: token desconocido
 @ | token |5
-@ | token |5asignación
+@ | token |5asignación/n
  | token |6
- | token |6palabra reservada
+ | token |6palabra reservada/n
 jent | token |6
 jent | token |6error: token desconocido
 suma | token |6
-suma | token |6asignación
+suma | token |6asignación/n
 = | token |6
 = | token |6error: token desconocido
 1. | token |6
-1. | token |6asignación
+1. | token |6asignación/n
  | token |7
- | token |7palabra reservada
+ | token |7palabra reservada/n
 jent | token |7
-jent | token |7identificador
+jent | token |7identificador/n
 @contador | token |7
-@contador | token |7asignación
+@contador | token |7asignación/n
 = | token |7
 = | token |7error: token desconocido
 ~. | token |7
-~. | token |7asignación
+~. | token |7asignación/n
  | token |9
  | token |9error: token desconocido
 jparacada | token |9
 jparacada | token |9error: token desconocido
 (jcad | token |9
-(jcad | token |9identificador
+(jcad | token |9identificador/n
 @numeroComoCadena | token |9
 @numeroComoCadena | token |9error: token desconocido
 en | token |9
 en | token |9error: token desconocido
 @numerosComoCadena). | token |9
-@numerosComoCadena). | token |9asignación
+@numerosComoCadena). | token |9asignación/n
  | token |10
- | token |10delimitador
+ | token |10delimitador/n
 { | token |10
-{ | token |10asignación
+{ | token |10asignación/n
  | token |11
- | token |11palabra reservada
+ | token |11palabra reservada/n
 jent | token |11
 jent | token |11error: token desconocido
 @numero. | token |11
-@numero. | token |11asignación
+@numero. | token |11asignación/n
  | token |13
  | token |13error: token desconocido
 jsi | token |13
 jsi | token |13error: token desconocido
 (@contador | token |13
-(@contador | token |13comparador
+(@contador | token |13comparador/n
 < | token |13
-< | token |13clase
+< | token |13error: token desconocido
 suma) | token |13
-suma) | token |13asignación
+suma) | token |13asignación/n
  | token |14
- | token |14delimitador
+ | token |14delimitador/n
 { | token |14
-{ | token |14asignación
+{ | token |14asignación/n
  | token |15
- | token |15identificador
+ | token |15identificador/n
 @suma | token |15
 @suma | token |15error: token desconocido
 += | token |15
 += | token |15error: token desconocido
 numero. | token |15
-numero. | token |15asignación
+numero. | token |15asignación/n
  | token |16
  | token |16error: token desconocido
 contador++; | token |16
-contador++; | token |16asignación
+contador++; | token |16asignación/n
  | token |17
- | token |17delimitador
+ | token |17delimitador/n
 } | token |17
-} | token |17asignación
+} | token |17asignación/n
  | token |18
- | token |18delimitador
+ | token |18delimitador/n
 } | token |18
-} | token |18asignación
+} | token |18asignación/n
  | token |20
  | token |20error: token desconocido
 jduble | token |20
-jduble | token |20identificador
+jduble | token |20identificador/n
 @promedio | token |20
-@promedio | token |20asignación
+@promedio | token |20asignación/n
 = | token |20
 = | token |20error: token desconocido
 suma | token |20
-suma | token |20operador arimético
+suma | token |20operador arimético/n
 / | token |20
 / | token |20error: token desconocido
 @contador. | token |20
-@contador. | token |20asignación
+@contador. | token |20asignación/n
  | token |22
  | token |22error: token desconocido
 jescribi("La | token |22
@@ -170,11 +170,11 @@ números | token |22error: token desconocido
 es: | token |22
 es: | token |22error: token desconocido
 " | token |22
-" | token |22operador arimético
+" | token |22operador arimético/n
 + | token |22
 + | token |22error: token desconocido
 suma). | token |22
-suma). | token |22asignación
+suma). | token |22asignación/n
  | token |23
  | token |23error: token desconocido
 jEscribir("El | token |23
@@ -194,10 +194,10 @@ es: | token |23error: token desconocido
 # | token |23
 # | token |23error: token desconocido
 promedio). | token |23
-promedio). | token |23asignación
+promedio). | token |23asignación/n
  | token |24
- | token |24delimitador
+ | token |24delimitador/n
 } | token |24
-} | token |24delimitador
+} | token |24delimitador/n
 } | token |25
 } | token |25

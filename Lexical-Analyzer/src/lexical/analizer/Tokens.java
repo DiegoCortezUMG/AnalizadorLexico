@@ -24,11 +24,11 @@ public class Tokens{
 
     String asignacion = "=";
     String main = "jPrincipal()";
-    String clase = "([a-z]|[A-Z])([0-9]|[a-z]+|[A-Z]|_)*+[()]";
-    String comentarios = "[//]([a-z]|[A-Z])([0-9]|[a-z]+|[A-Z]|_)*";
+    String clase = "([á,é,í,ó,ú]|[a-z]|[A-Z])([á,é,í,ó,ú]|[0-9]||[a-z]+|[A-Z]|_)*+[()]";
+    String comentarios = "[//]([á,é,í,ó,ú]|[a-z]|[A-Z])([á,é,í,ó,ú]|[0-9]|[a-z]+|[A-Z]|_)*";
     String identificador = "[@]+([a-z]|[A-Z])([0-9]|[a-z]+|[A-Z]|_)*";
-    String textoString = "[\"]([a-z]|[A-Z])([ ])([0-9]|[a-z]+|[A-Z]|_)*[\"]";
-    String condicion = "[(]([a-z]|[A-Z])([0-9]|[@]|[ ]|[a-z]+|[A-Z]|_)*[)]";
+    String textoString = "[\"]([ ]|[á,é,í,ó,ú]|[:]|[0-9]|[a-z]+|[A-Z]|_)*[\"]";
+    String condicion = "[(]([á,é,í,ó,ú]|[a-z]|[A-Z])([á,é,í,ó,ú]|[0-9]|[@]|[ ]|[a-z]+|[A-Z]|_)*[)]";
     String array = "[{]([0-9]+[,][0-9]+)*[}]";
     String DigitosInt = "[0-9]+";
     String DigitosFloat = "[0-9]+[.][0-9]+";
@@ -87,36 +87,36 @@ public class Tokens{
     }
     private String checkToken(String split) {
         if (this.palabrasReservadas.contains(split)) {
-            System.out.println("palabra reservada");
+            System.out.println("palabra reservada/n");
         } else if (split.matches(this.textoString)) {
-            System.out.println("texto string");
+            System.out.println("texto string/n");
         } else if (split.matches(this.clase)) {
-            System.out.println("clase");
+            System.out.println("clase/n");
         } else if (this.asignacion.contains(split)) {
-            System.out.println("asignación");
+            System.out.println("asignación/n");
         } else if (this.main.contains(split)) {
-            System.out.println("clase principal");
+            System.out.println("clase principal/n");
         } else if (this.delimitadores.contains(split)) {
-            System.out.println("delimitador");
+            System.out.println("delimitador/n");
         } else if (this.comparadores.contains((split))) {
-            System.out.println("comparador");
+            System.out.println("comparador/n");
         } else if (this.operadoresM.contains(split)) {
-            System.out.println("operador arimético");
+            System.out.println("operador arimético/n");
         } else if (this.fin.contains(split)) {
-            System.out.println("fin de sentencia");
+            System.out.println("fin de sentencia/n");
         } else if (split.matches(this.DigitosInt)){
-            System.out.println("entero");
+            System.out.println("entero/n");
         } else if (split.matches(this.DigitosFloat)) {
-            System.out.println("decimal");
+            System.out.println("decimal/n");
         } else if (split.matches(this.array)) {
-            System.out.println("arreglo");
+            System.out.println("arreglo/n");
         } else if (split.matches(this.condicion)) {
-            System.out.println("condicion");
+            System.out.println("condicion/n");
         } else if (split.matches(this.identificador)) {
             if (this.booleanos.contains(split)) {
-                System.out.println("booleano");
+                System.out.println("booleano/n");
             }
-            System.out.println("identificador");
+            System.out.println("identificador/n");
         } else if (split.matches("\\{(?s).*?")) {
             System.out.println("error: no pertenece al lenguaje/n");
         } else{
