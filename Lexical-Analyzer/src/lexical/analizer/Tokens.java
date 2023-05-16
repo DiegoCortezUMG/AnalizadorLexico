@@ -11,8 +11,7 @@ import java.io.PrintStream;
 public class Tokens{
     File salida = new File("src/lexical/analizer/SalidaLex");
     PrintStream stream;
-    
-    ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("sellado","abstracto","clase", "imprimir", "jent","jent[]", "escribir", "booleano", "const", "raiz",
+    ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("jclase","sellado","abstracto","clase", "jescribir", "jent","jent[]","booleano", "const", "raiz",
                     "flota","jconst","jdoble","bit", "si", "then", "demas", "jcada_vez", "hacer", "mientras", "publico", "enteros", "iniciales", "protegido", "vacia","vacio", "larg","cada"));
     //aquí el punto se utiliza para marcar el final de una línea de código
     ArrayList<String> delimitadores = new ArrayList<>(Arrays.asList(";",":",",","{","}"));
@@ -34,10 +33,10 @@ public class Tokens{
     String DigitosFloat = "[0-9]+[.][0-9]+";
 
     ArrayList<String> myProgram = null;
-
+    
     public Tokens(ArrayList<String> myArrayList) throws IOException{
-        this.stream = new PrintStream(salida);
         this.myProgram = myArrayList;
+        this.stream = new PrintStream(salida);
         System.setOut(stream);
     }
     public int lexicAnalizer() {
@@ -48,19 +47,19 @@ public class Tokens{
             for (int j = 0; j < splited.length; j++) {
                 String token = splited[j];
                 String result = checkToken(token);
-                if (null != result) {
-                if(!result.equals("desconocido)")) {
+                if (null != result){
+                if(!result.equals("unknown")){
                     System.out.println(token + " | "+ result + " |" + i);
                 }
                 else {
                     String subToken = token.substring(0, token.length() - 1);
                     result = checkToken(subToken);
-                    if(!result.equals("desconocido")) {
+                    if(!result.equals("unknown")) {
                         System.out.println(result + " : " +subToken);
                         //System.out.println(subToken + " | "+ result + " |" + i);
                         String lastToken = token.substring(token.length() - 1, token.length());
                         result = checkToken(lastToken);
-                        if(!result.equals("desconocido")) {
+                        if(!result.equals("unknown")) {
                             System.out.println(result + " : " +lastToken);
                             //System.out.println(lastToken+ " | "+ result + " |" + i);
                         }
@@ -77,7 +76,7 @@ public class Tokens{
                     }
                 }
         }
-                System.out.print(token + " | "+ result + " |" + i);
+                //System.out.print(token + " | "+ result + " |" + i);
                 }
 }
         return 1;
@@ -87,41 +86,41 @@ public class Tokens{
     }
     private String checkToken(String split) {
         if (this.palabrasReservadas.contains(split)) {
-            System.out.println("palabra reservada/n");
+            System.out.print("palabra reservada");
         } else if (split.matches(this.textoString)) {
-            System.out.println("texto string/n");
+            System.out.print("texto string");
         } else if (split.matches(this.clase)) {
-            System.out.println("clase/n");
+            System.out.print("clase");
         } else if (this.asignacion.contains(split)) {
-            System.out.println("asignación/n");
+            System.out.print("asignación");
         } else if (this.main.contains(split)) {
-            System.out.println("clase principal/n");
+            System.out.print("clase principal");
         } else if (this.delimitadores.contains(split)) {
-            System.out.println("delimitador/n");
+            System.out.print("delimitador");
         } else if (this.comparadores.contains((split))) {
-            System.out.println("comparador/n");
+            System.out.print("comparador");
         } else if (this.operadoresM.contains(split)) {
-            System.out.println("operador arimético/n");
+            System.out.print("operador arimético");
         } else if (this.fin.contains(split)) {
-            System.out.println("fin de sentencia/n");
+            System.out.print("fin de sentencia");
         } else if (split.matches(this.DigitosInt)){
-            System.out.println("entero/n");
+            System.out.print("entero");
         } else if (split.matches(this.DigitosFloat)) {
-            System.out.println("decimal/n");
+            System.out.print("decimal");
         } else if (split.matches(this.array)) {
-            System.out.println("arreglo/n");
+            System.out.print("arreglo");
         } else if (split.matches(this.condicion)) {
-            System.out.println("condicion/n");
+            System.out.print("condicion");
         } else if (split.matches(this.identificador)) {
             if (this.booleanos.contains(split)) {
-                System.out.println("booleano/n");
+                System.out.print("booleano");
             }
-            System.out.println("identificador/n");
+            System.out.print("identificador");
         } else if (split.matches("\\{(?s).*?")) {
-            System.out.println("error: no pertenece al lenguaje/n");
+            System.out.print("error: no pertenece al lenguaje");
         } else{
-            System.out.println("error: token desconocido");
+            System.out.print("error: palabra reservada mal escrita");
         }
-        return "token";
+        return "";
     }
 }
