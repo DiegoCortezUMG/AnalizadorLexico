@@ -1,101 +1,101 @@
-palabra reservadajclase |  |0
-error: palabra reservada mal escrita@ProgramaSumaPromedio. |  |0
-delimitador{ |  |1
-asignación |  |2
-error: palabra reservada mal escritajestatico |  |2
-error: palabra reservada mal escritajvoidi |  |2
-error: palabra reservada mal escritajprincipal(jcad[] |  |2
-error: palabra reservada mal escritaarg). |  |2
-asignación |  |3
-delimitador{ |  |3
-asignación |  |4
-error: palabra reservada mal escritajEscribor( |  |4
-error: palabra reservada mal escrita"Ingrese |  |4
-error: palabra reservada mal escritauna |  |4
-error: palabra reservada mal escritalista |  |4
-error: palabra reservada mal escritade |  |4
-error: palabra reservada mal escritanúmeros |  |4
-palabra reservadaenteros |  |4
-error: palabra reservada mal escritaseparados |  |4
-error: palabra reservada mal escritapor |  |4
-error: palabra reservada mal escritaespacios:" |  |4
-error: palabra reservada mal escrita). |  |4
-asignación |  |5
-error: palabra reservada mal escritajcad[] |  |5
-identificador@numerosComoCadena |  |5
-asignación= |  |5
-error: palabra reservada mal escritajImprimir(). |  |5
-error: palabra reservada mal escrita@divide(hola) |  |5
-fin de sentencia. |  |5
-error: palabra reservada mal escrita// |  |5
-error: palabra reservada mal escritaIdentificador |  |5
-error: palabra reservada mal escritasin |  |5
-error: palabra reservada mal escrita@ |  |5
-asignación |  |6
-palabra reservadajent |  |6
-error: palabra reservada mal escritasuma |  |6
-asignación= |  |6
-error: palabra reservada mal escrita1. |  |6
-asignación |  |7
-palabra reservadajent |  |7
-identificador@contador |  |7
-asignación= |  |7
-error: palabra reservada mal escrita~. |  |7
-asignación |  |9
-error: palabra reservada mal escritajparacada |  |9
-error: palabra reservada mal escrita(jcad |  |9
-identificador@numeroComoCadena |  |9
-error: palabra reservada mal escritaen |  |9
-error: palabra reservada mal escrita@numerosComoCadena). |  |9
-asignación |  |10
-delimitador{ |  |10
-asignación |  |11
-palabra reservadajent |  |11
-error: palabra reservada mal escrita@numero. |  |11
-asignación |  |13
-error: palabra reservada mal escritajsi |  |13
-error: palabra reservada mal escrita(@contador |  |13
-comparador< |  |13
-error: palabra reservada mal escritasuma) |  |13
-asignación |  |14
-delimitador{ |  |14
-asignación |  |15
-identificador@suma |  |15
-error: palabra reservada mal escrita+= |  |15
-error: palabra reservada mal escritanumero. |  |15
-asignación |  |16
-error: palabra reservada mal escritacontador++; |  |16
-asignación |  |17
-delimitador} |  |17
-asignación |  |18
-delimitador} |  |18
-asignación |  |20
-error: palabra reservada mal escritajduble |  |20
-identificador@promedio |  |20
-asignación= |  |20
-error: palabra reservada mal escritasuma |  |20
-operador arimético/ |  |20
-error: palabra reservada mal escrita@contador. |  |20
-asignación |  |22
-error: palabra reservada mal escritajescribi("La |  |22
-error: palabra reservada mal escritasuma |  |22
-error: palabra reservada mal escritade |  |22
-error: palabra reservada mal escritalos |  |22
-error: palabra reservada mal escritanúmeros |  |22
-error: palabra reservada mal escritaes: |  |22
-error: palabra reservada mal escrita" |  |22
-operador arimético+ |  |22
-error: palabra reservada mal escritasuma). |  |22
-asignación |  |23
-error: palabra reservada mal escritajEscribir("El |  |23
-error: palabra reservada mal escritapromedio |  |23
-error: palabra reservada mal escritade |  |23
-error: palabra reservada mal escritalos |  |23
-error: palabra reservada mal escritanúmeros |  |23
-error: palabra reservada mal escritaes: |  |23
-error: palabra reservada mal escrita" |  |23
-error: palabra reservada mal escrita# |  |23
-error: palabra reservada mal escritapromedio). |  |23
-asignación |  |24
-delimitador} |  |24
-delimitador} |  |25
+palabra reservada: jclase | lectura exitosa |0
+error: palabra reservada mal escrita: @ProgramaSumaPromedio. | lectura exitosa |0
+delimitador: { | lectura exitosa |1
+asignación:  | lectura exitosa |2
+error: palabra reservada mal escrita: jestatico | lectura exitosa |2
+error: palabra reservada mal escrita: jvoidi | lectura exitosa |2
+error: palabra reservada mal escrita: jprincipal(jcad[] | lectura exitosa |2
+error: palabra reservada mal escrita: arg). | lectura exitosa |2
+asignación:  | lectura exitosa |3
+delimitador: { | lectura exitosa |3
+asignación:  | lectura exitosa |4
+error: palabra reservada mal escrita: jEscribor( | lectura exitosa |4
+error: palabra reservada mal escrita: "Ingrese | lectura exitosa |4
+error: palabra reservada mal escrita: una | lectura exitosa |4
+error: palabra reservada mal escrita: lista | lectura exitosa |4
+error: palabra reservada mal escrita: de | lectura exitosa |4
+error: palabra reservada mal escrita: números | lectura exitosa |4
+palabra reservada: enteros | lectura exitosa |4
+error: palabra reservada mal escrita: separados | lectura exitosa |4
+error: palabra reservada mal escrita: por | lectura exitosa |4
+error: palabra reservada mal escrita: espacios:" | lectura exitosa |4
+error: palabra reservada mal escrita: ). | lectura exitosa |4
+asignación:  | lectura exitosa |5
+error: palabra reservada mal escrita: jcad[] | lectura exitosa |5
+identificador @numerosComoCadena | lectura exitosa |5
+asignación: = | lectura exitosa |5
+error: palabra reservada mal escrita: jImprimir(). | lectura exitosa |5
+error: palabra reservada mal escrita: @divide(hola) | lectura exitosa |5
+fin de sentencia: . | lectura exitosa |5
+error: palabra reservada mal escrita: // | lectura exitosa |5
+error: palabra reservada mal escrita: Identificador | lectura exitosa |5
+error: palabra reservada mal escrita: sin | lectura exitosa |5
+error: palabra reservada mal escrita: @ | lectura exitosa |5
+asignación:  | lectura exitosa |6
+palabra reservada: jent | lectura exitosa |6
+error: palabra reservada mal escrita: suma | lectura exitosa |6
+asignación: = | lectura exitosa |6
+error: palabra reservada mal escrita: 1. | lectura exitosa |6
+asignación:  | lectura exitosa |7
+palabra reservada: jent | lectura exitosa |7
+identificador @contador | lectura exitosa |7
+asignación: = | lectura exitosa |7
+error: palabra reservada mal escrita: ~. | lectura exitosa |7
+asignación:  | lectura exitosa |9
+error: palabra reservada mal escrita: jparacada | lectura exitosa |9
+error: palabra reservada mal escrita: (jcad | lectura exitosa |9
+identificador @numeroComoCadena | lectura exitosa |9
+error: palabra reservada mal escrita: en | lectura exitosa |9
+error: palabra reservada mal escrita: @numerosComoCadena). | lectura exitosa |9
+asignación:  | lectura exitosa |10
+delimitador: { | lectura exitosa |10
+asignación:  | lectura exitosa |11
+palabra reservada: jent | lectura exitosa |11
+error: palabra reservada mal escrita: @numero. | lectura exitosa |11
+asignación:  | lectura exitosa |13
+error: palabra reservada mal escrita: jsi | lectura exitosa |13
+error: palabra reservada mal escrita: (@contador | lectura exitosa |13
+comparador: < | lectura exitosa |13
+error: palabra reservada mal escrita: suma) | lectura exitosa |13
+asignación:  | lectura exitosa |14
+delimitador: { | lectura exitosa |14
+asignación:  | lectura exitosa |15
+identificador @suma | lectura exitosa |15
+error: palabra reservada mal escrita: += | lectura exitosa |15
+error: palabra reservada mal escrita: numero. | lectura exitosa |15
+asignación:  | lectura exitosa |16
+error: palabra reservada mal escrita: contador++; | lectura exitosa |16
+asignación:  | lectura exitosa |17
+delimitador: } | lectura exitosa |17
+asignación:  | lectura exitosa |18
+delimitador: } | lectura exitosa |18
+asignación:  | lectura exitosa |20
+error: palabra reservada mal escrita: jduble | lectura exitosa |20
+identificador @promedio | lectura exitosa |20
+asignación: = | lectura exitosa |20
+error: palabra reservada mal escrita: suma | lectura exitosa |20
+operador arimético: / | lectura exitosa |20
+error: palabra reservada mal escrita: @contador. | lectura exitosa |20
+asignación:  | lectura exitosa |22
+error: palabra reservada mal escrita: jescribi("La | lectura exitosa |22
+error: palabra reservada mal escrita: suma | lectura exitosa |22
+error: palabra reservada mal escrita: de | lectura exitosa |22
+error: palabra reservada mal escrita: los | lectura exitosa |22
+error: palabra reservada mal escrita: números | lectura exitosa |22
+error: palabra reservada mal escrita: es: | lectura exitosa |22
+error: palabra reservada mal escrita: " | lectura exitosa |22
+operador arimético: + | lectura exitosa |22
+error: palabra reservada mal escrita: suma). | lectura exitosa |22
+asignación:  | lectura exitosa |23
+error: palabra reservada mal escrita: jEscribir("El | lectura exitosa |23
+error: palabra reservada mal escrita: promedio | lectura exitosa |23
+error: palabra reservada mal escrita: de | lectura exitosa |23
+error: palabra reservada mal escrita: los | lectura exitosa |23
+error: palabra reservada mal escrita: números | lectura exitosa |23
+error: palabra reservada mal escrita: es: | lectura exitosa |23
+error: palabra reservada mal escrita: " | lectura exitosa |23
+error: palabra reservada mal escrita: # | lectura exitosa |23
+error: palabra reservada mal escrita: promedio). | lectura exitosa |23
+asignación:  | lectura exitosa |24
+delimitador: } | lectura exitosa |24
+delimitador: } | lectura exitosa |25

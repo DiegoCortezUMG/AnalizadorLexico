@@ -86,41 +86,41 @@ public class Tokens{
     }
     private String checkToken(String split) {
         if (this.palabrasReservadas.contains(split)) {
-            System.out.print("palabra reservada");
+            System.out.print("palabra reservada: ");
         } else if (split.matches(this.textoString)) {
-            System.out.print("texto string");
+            System.out.print("texto string: ");
         } else if (split.matches(this.clase)) {
-            System.out.print("clase");
+            System.out.print("clase: ");
         } else if (this.asignacion.contains(split)) {
-            System.out.print("asignación");
+            System.out.print("asignación: ");
         } else if (this.main.contains(split)) {
-            System.out.print("clase principal");
+            System.out.print("clase principal: ");
         } else if (this.delimitadores.contains(split)) {
-            System.out.print("delimitador");
+            System.out.print("delimitador: ");
         } else if (this.comparadores.contains((split))) {
-            System.out.print("comparador");
+            System.out.print("comparador: ");
         } else if (this.operadoresM.contains(split)) {
-            System.out.print("operador arimético");
+            System.out.print("operador arimético: ");
         } else if (this.fin.contains(split)) {
-            System.out.print("fin de sentencia");
+            System.out.print("fin de sentencia: ");
         } else if (split.matches(this.DigitosInt)){
-            System.out.print("entero");
+            System.out.print("entero: ");
         } else if (split.matches(this.DigitosFloat)) {
-            System.out.print("decimal");
+            System.out.print("decimal: ");
         } else if (split.matches(this.array)) {
-            System.out.print("arreglo");
+            System.out.print("arreglo: ");
         } else if (split.matches(this.condicion)) {
-            System.out.print("condicion");
+            System.out.print("condicion: ");
         } else if (split.matches(this.identificador)) {
             if (this.booleanos.contains(split)) {
-                System.out.print("booleano");
+                System.out.print("booleano: ");
             }
-            System.out.print("identificador");
+            System.out.print("identificador ");
         } else if (split.matches("\\{(?s).*?")) {
-            System.out.print("error: no pertenece al lenguaje");
+            System.out.print("error: no pertenece al lenguaje: ");
         } else{
-            System.out.print("error: palabra reservada mal escrita");
+            System.out.print("error: palabra reservada mal escrita: ");
         }
-        return "";
+        return "lectura exitosa";
     }
 }
