@@ -2,14 +2,18 @@ palabra reservada: jclase | lectura exitosa |0
 error: palabra reservada mal escrita: @ProgramaSumaPromedio. | lectura exitosa |0
 delimitador: { | lectura exitosa |1
 asignación:  | lectura exitosa |2
-error: palabra reservada mal escrita: jestatico | lectura exitosa |2
-error: palabra reservada mal escrita: jvoidi | lectura exitosa |2
-error: palabra reservada mal escrita: jprincipal(jcad[] | lectura exitosa |2
-error: palabra reservada mal escrita: arg). | lectura exitosa |2
+palabra reservada: jestatico | lectura exitosa |2
+palabra reservada: jvoid | lectura exitosa |2
+clase principal: jprincipal | lectura exitosa |2
+clase principal: ( | lectura exitosa |2
+palabra reservada: jcad[] | lectura exitosa |2
+palabra reservada: arg | lectura exitosa |2
+error: palabra reservada mal escrita: ). | lectura exitosa |2
 asignación:  | lectura exitosa |3
 delimitador: { | lectura exitosa |3
 asignación:  | lectura exitosa |4
-error: palabra reservada mal escrita: jEscribor( | lectura exitosa |4
+palabra reservada: jEscribir | lectura exitosa |4
+clase principal: ( | lectura exitosa |4
 error: palabra reservada mal escrita: "Ingrese | lectura exitosa |4
 error: palabra reservada mal escrita: una | lectura exitosa |4
 error: palabra reservada mal escrita: lista | lectura exitosa |4
@@ -21,7 +25,7 @@ error: palabra reservada mal escrita: por | lectura exitosa |4
 error: palabra reservada mal escrita: espacios:" | lectura exitosa |4
 error: palabra reservada mal escrita: ). | lectura exitosa |4
 asignación:  | lectura exitosa |5
-error: palabra reservada mal escrita: jcad[] | lectura exitosa |5
+palabra reservada: jcad[] | lectura exitosa |5
 identificador @numerosComoCadena | lectura exitosa |5
 asignación: = | lectura exitosa |5
 error: palabra reservada mal escrita: jImprimir(). | lectura exitosa |5
@@ -42,7 +46,7 @@ identificador @contador | lectura exitosa |7
 asignación: = | lectura exitosa |7
 error: palabra reservada mal escrita: ~. | lectura exitosa |7
 asignación:  | lectura exitosa |9
-error: palabra reservada mal escrita: jparacada | lectura exitosa |9
+palabra reservada: jparacada | lectura exitosa |9
 error: palabra reservada mal escrita: (jcad | lectura exitosa |9
 identificador @numeroComoCadena | lectura exitosa |9
 error: palabra reservada mal escrita: en | lectura exitosa |9
@@ -53,7 +57,7 @@ asignación:  | lectura exitosa |11
 palabra reservada: jent | lectura exitosa |11
 error: palabra reservada mal escrita: @numero. | lectura exitosa |11
 asignación:  | lectura exitosa |13
-error: palabra reservada mal escrita: jsi | lectura exitosa |13
+palabra reservada: jsi | lectura exitosa |13
 error: palabra reservada mal escrita: (@contador | lectura exitosa |13
 comparador: < | lectura exitosa |13
 error: palabra reservada mal escrita: suma) | lectura exitosa |13
@@ -70,14 +74,14 @@ delimitador: } | lectura exitosa |17
 asignación:  | lectura exitosa |18
 delimitador: } | lectura exitosa |18
 asignación:  | lectura exitosa |20
-error: palabra reservada mal escrita: jduble | lectura exitosa |20
+error: palabra reservada mal escrita: jduoble | lectura exitosa |20
 identificador @promedio | lectura exitosa |20
 asignación: = | lectura exitosa |20
 error: palabra reservada mal escrita: suma | lectura exitosa |20
 operador arimético: / | lectura exitosa |20
 error: palabra reservada mal escrita: @contador. | lectura exitosa |20
 asignación:  | lectura exitosa |22
-error: palabra reservada mal escrita: jescribi("La | lectura exitosa |22
+error: palabra reservada mal escrita: jEscribir("La | lectura exitosa |22
 error: palabra reservada mal escrita: suma | lectura exitosa |22
 error: palabra reservada mal escrita: de | lectura exitosa |22
 error: palabra reservada mal escrita: los | lectura exitosa |22

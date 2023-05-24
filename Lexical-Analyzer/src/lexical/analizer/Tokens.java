@@ -5,24 +5,24 @@ import java.util.Arrays;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-/**
- * Definición de tokens y patrones
- */
+/*
+*Definición de tokens y patrones
+*/
 public class Tokens{
     File salida = new File("src/lexical/analizer/SalidaLex");
     PrintStream stream;
-    ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("jclase","sellado","abstracto","clase", "jescribir", "jent","jent[]","booleano", "const", "raiz",
-                    "flota","jconst","jdoble","bit", "si", "then", "demas", "jcada_vez", "hacer", "mientras", "publico", "enteros", "iniciales", "protegido", "vacia","vacio", "larg","cada"));
+    ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("jclase","jestatico","jvoid","sellado","abstracto","clase", "jEscribir", "jent","jent[]","booleano", "const", "raiz",
+                    "flota","jcad[]","jcad","jconst","jdouble","bit","arg", "si", "then", "demas","jparacada","jsi", "jcada_vez", "hacer", "mientras", "publico", "enteros", "iniciales", "protegido", "vacia","vacio", "larg","cada"));
     //aquí el punto se utiliza para marcar el final de una línea de código
     ArrayList<String> delimitadores = new ArrayList<>(Arrays.asList(";",":",",","{","}"));
     ArrayList<String> comparadores = new ArrayList<>(Arrays.asList("=:=","!=",">","<",">=","<=","++","&&"));
     ArrayList<String> operadoresM = new ArrayList<>(Arrays.asList("+","-","*","/","++"));
-    ArrayList<String> simbolo = new ArrayList<>(Arrays.asList("#","%","$","?","¿","!","¡"));
+    ArrayList<String> simbolo = new ArrayList<>(Arrays.asList("#","§","%","$","?","¿","!","¡"));
     ArrayList<String> fin = new ArrayList<>(Arrays.asList("."));
     ArrayList<String> booleanos = new ArrayList<>(Arrays.asList("verdadero", "falso"));
 
     String asignacion = "=";
-    String main = "jPrincipal()";
+    String main = "jprincipal()";
     String clase = "([á,é,í,ó,ú]|[a-z]|[A-Z])([á,é,í,ó,ú]|[0-9]||[a-z]+|[A-Z]|_)*+[()]";
     String comentarios = "[//]([á,é,í,ó,ú]|[a-z]|[A-Z])([á,é,í,ó,ú]|[0-9]|[a-z]+|[A-Z]|_)*";
     String identificador = "[@]+([a-z]|[A-Z])([0-9]|[a-z]+|[A-Z]|_)*";
@@ -33,7 +33,6 @@ public class Tokens{
     String DigitosFloat = "[0-9]+[.][0-9]+";
 
     ArrayList<String> myProgram = null;
-    
     public Tokens(ArrayList<String> myArrayList) throws IOException{
         this.myProgram = myArrayList;
         this.stream = new PrintStream(salida);

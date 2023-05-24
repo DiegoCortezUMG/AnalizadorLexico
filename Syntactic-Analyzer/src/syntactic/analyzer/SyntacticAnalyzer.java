@@ -5,6 +5,9 @@
  */
 package syntactic.analyzer;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 /**
  *
  * @author thiago
@@ -17,5 +20,4 @@ public class SyntacticAnalyzer {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
 }
