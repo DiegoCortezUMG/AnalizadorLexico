@@ -1,16 +1,21 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package lexical.analizer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-/*
-*Definición de tokens y patrones
-*/
-public class Tokens{
+import java.util.ArrayList;
+import java.util.Arrays;
+/**
+ *
+ * @author Usuario
+ */
+public class Sintaxis {
     String lector="";
-    File salida = new File("src/lexical/analizer/SalidaLex");
+    File salida = new File("src/lexical/analizer/SalidaSin");
     PrintStream stream;
     //declaración de tokens
     ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("jclase","jestatico","jvoid","sellado","abstracto","clase", "jEscribir", "jent","jent[]","booleano", "const", "raiz",
@@ -36,7 +41,7 @@ public class Tokens{
     String claseP;
 
     ArrayList<String> myProgram = null;
-    public Tokens(ArrayList<String> myArrayList) throws IOException{
+    public Sintaxis(ArrayList<String> myArrayList) throws IOException{
         this.myProgram = myArrayList;
         this.stream = new PrintStream(salida);
         System.setOut(stream);
@@ -51,28 +56,28 @@ public class Tokens{
                 String result = checkToken(token);
                 if (null != result){
                 if(!result.equals("unknown")){
-                    System.out.println(token + " | "+ result + " |" + i);
+                    //System.out.println(token + " | "+ result + " |" + i);
                 }
                 else {
                     String subToken = token.substring(0, token.length() - 1);
                     result = checkToken(subToken);
                     if(!result.equals("unknown")) {
-                        System.out.println(result + " : " +subToken);
+                        //System.out.println(result + " : " +subToken);
                         //System.out.println(subToken + " | "+ result + " |" + i);
                         String lastToken = token.substring(token.length() - 1, token.length());
                         result = checkToken(lastToken);
                         if(!result.equals("unknown")) {
-                            System.out.println(result + " : " +lastToken);
-                            //System.out.println(lastToken+ " | "+ result + " |" + i);
+                            //System.out.println(result + " : " +lastToken);
+                            System.out.println("|" + i);
                         }
                         else {
-                            System.err.println("Error: No pertenece al lenguage");
+                            //System.err.println("Error: No pertenece al lenguage");
                             //System.err.println("Linea: "+i+", Estado: "+result+" -> "+subToken);
                             return 0;
                         }
                     }
                     else {
-                        System.err.println("Error: No pertenece al languaje");
+                        //System.err.println("Error: No pertenece al languaje");
                         //System.err.println("Linea: "+i+", Estado: " + result + " -> "+subToken+"");
                         return 0;
                     }
@@ -87,41 +92,62 @@ public class Tokens{
     }
     private String checkToken(String split) {
         if (this.palabrasReservadas.contains(split)) {
-           System.out.print("palabra reservada: ");
+           //System.out.print("palabra reservada: ");
+           lector=lector+"preservada ";
         } else if (split.matches(this.textoString)) {
-           System.out.print("texto string: ");
+           //System.out.print("texto string: ");
+           lector=lector+"textoString ";
         } else if (split.matches(this.clase)) {
-           System.out.print("clase: ");
+           //System.out.print("clase: ");
+           lector=lector+"clase ";
         } else if (this.asignacion.contains(split)) {
-           System.out.print("asignación: ");
+           //System.out.print("asignación: ");
+           lector=lector+"asignacion ";
         } else if (this.main.contains(split)) {
-           System.out.print("clase principal: ");
+           //System.out.print("clase principal: ");
+           lector=lector+"claseP ";
         } else if (this.delimitadores.contains(split)) {
-           System.out.print("delimitador: ");
+           //System.out.print("delimitador: ");
+           lector=lector+"delimitador ";
         } else if (this.comparadores.contains((split))) {
-           System.out.print("comparador: ");
+           //System.out.print("comparador: ");
+           lector=lector+"comparador ";
         } else if (this.operadoresM.contains(split)) {
-           System.out.print("operador arimético: ");
+           //System.out.print("operador arimético: ");
+           lector=lector+"opM ";
         } else if (this.fin.contains(split)) {
-           System.out.print("fin de sentencia: ");
+           //System.out.print("fin de sentencia: ");
+           lector=lector+"fin ";
+           lector="";
         } else if (split.matches(this.DigitosInt)){
-           System.out.print("entero: ");
+           //System.out.print("entero: ");
+           lector=lector+"valor ";
         } else if (split.matches(this.DigitosFloat)) {
-            System.out.print("decimal: ");
+            //System.out.print("decimal: ");
+            lector=lector+"valor ";
         } else if (split.matches(this.array)) {
-            System.out.print("arreglo: ");
+            //System.out.print("arreglo: ");
+            lector=lector+"array ";
         } else if (split.matches(this.condicion)) {
-            System.out.print("condicion: ");
+            //System.out.print("condicion: ");
+            lector=lector+"cond ";
         } else if (split.matches(this.identificador)) {
             if (this.booleanos.contains(split)) {
-            System.out.print("booleano: ");
+            //System.out.print("booleano: ");
+            lector=lector+"id ";
             }
-            System.out.print("identificador ");
+            //System.out.print("identificador ");
         } else if (split.matches("\\{(?s).*?")) {
-            System.out.print("error: no pertenece al lenguaje: ");
         } else{
-            System.out.print("error: palabra reservada mal escrita: ");
-        }
-        return "lectura exitosa";
+        } return "lectura exitosa";
     }
+    private String checkSyntax(){
+    if (lector.equals("claseP identificador fin")){
+        System.out.println("sintaxis correcta");
+    } if (lector.equals("array identificador asignación valor fin")){
+        System.out.println("sintaxis correcta");
+    } else {
+        System.out.println("error sintactico");
+    } return "Syntaxis revisada";
+}
 }

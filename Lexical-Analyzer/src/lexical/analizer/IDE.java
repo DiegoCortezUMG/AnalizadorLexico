@@ -169,7 +169,6 @@ public class IDE extends javax.swing.JFrame {
         }
         // Cierra el flujo de tokens
         br.close();
-        
         Tokens token = new Tokens(lines);
         //System.out.println();
         int resp = token.lexicAnalizer();
@@ -212,14 +211,19 @@ public class IDE extends javax.swing.JFrame {
             InputStream entrada = new FileInputStream(archivo); 
         // entrada convierte el archivo a texto ara que lea el analizador
             BufferedReader br = new BufferedReader(new InputStreamReader(entrada));
-        String strLine="";
+        String strLine;
         ArrayList<String> lines = new ArrayList<String> ();
         //empieza el análisis léxico
         // Lee línea por línea
-        AS parser=new AS(strLine);//i*i+(i+i)$
-        parser.algorithm();
+        while ((strLine = br.readLine()) != null)   {
+          lines.add(strLine);
+            //System.out.println(strLine);
+        }
         // Cierra el flujo de tokens
         br.close();
+        Sintaxis Sintax = new Sintaxis(lines);
+        //System.out.println();
+        int resp = Sintax.lexicAnalizer();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
