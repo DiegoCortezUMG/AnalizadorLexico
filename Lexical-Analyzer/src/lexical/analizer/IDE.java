@@ -96,26 +96,24 @@ public class IDE extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(AnLexico)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AnSintactico)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(0, 485, Short.MAX_VALUE))
-                                    .addComponent(jScrollPane2)))
+                                .addComponent(jLabel3)
+                                .addGap(0, 485, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                .addComponent(AnLexico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AnSintactico)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +231,7 @@ public class IDE extends javax.swing.JFrame {
         try {
             //FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
             //String nombre = archivo.getPath(); // obtiene la ruta del archivo seleccionado
-            FileReader lector = new FileReader("src/lexical/analizer/SalidaLex");
+            FileReader lector = new FileReader("src/lexical/analizer/SalidaSin");
             BufferedReader lectorb = new BufferedReader(lector);
             SalidaLexico.read(lectorb,null);
             lectorb.close();
@@ -272,34 +270,12 @@ public class IDE extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(IDE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-    // Abre el archivo
-    /*FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
-    File salida = new File("src/lexical/analizer/SalidaLex");;
-    BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-
-    
-    String strLine;
-    ArrayList<String> lines = new ArrayList<String> ();
-
-    // Lee línea por línea
-    System.out.println("--");
-    while ((strLine = br.readLine()) != null)   {
-      lines.add(strLine);
-        System.out.println(strLine);
-    }
-    // Cierra el flujo de tokens
-    br.close();
-    
-    Tokens token = new Tokens(lines);
-    System.out.println("--");
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new IDE().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnLexico;
     private javax.swing.JButton AnSintactico;

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package lexical.analizer;
 
 import java.io.File;
@@ -15,8 +11,9 @@ import java.util.Arrays;
  */
 public class Sintaxis {
     String lector="";
+    
     File salida = new File("src/lexical/analizer/SalidaSin");
-    PrintStream stream;
+    PrintStream Sstream;
     //declaración de tokens
     ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("jclase","jestatico","jvoid","sellado","abstracto","clase", "jEscribir", "jent","jent[]","booleano", "const", "raiz",
                     "flota","jcad[]","jcad","jconst","jdouble","bit","arg", "si", "then", "demas","jparacada","jsi", "jcada_vez", "hacer", "mientras", "publico", "enteros", "iniciales", "protegido", "vacia","vacio", "larg","cada"));
@@ -43,10 +40,10 @@ public class Sintaxis {
     ArrayList<String> myProgram = null;
     public Sintaxis(ArrayList<String> myArrayList) throws IOException{
         this.myProgram = myArrayList;
-        this.stream = new PrintStream(salida);
-        System.setOut(stream);
+        this.Sstream = new PrintStream(salida);
+        System.setOut(Sstream);
     }
-    public int lexicAnalizer() {
+public int lexicAnalizer() {
         for(int i = 0; i < this.myProgram.size(); i++) {
             String line = discardComments(this.myProgram.get(i));
             String[] splited = line.split("\\s+");
@@ -83,8 +80,7 @@ public class Sintaxis {
                     }
                 }
         }
-                //System.out.print(token + " | "+ result + " |" + i);
-                }
+            }//System.out.print(lector);
 } return 1;
     }
     private String discardComments(String line) {
@@ -139,15 +135,14 @@ public class Sintaxis {
             //System.out.print("identificador ");
         } else if (split.matches("\\{(?s).*?")) {
         } else{
-        } return "lectura exitosa";
-    }
-    private String checkSyntax(){
+        } 
     if (lector.equals("claseP identificador fin")){
         System.out.println("sintaxis correcta");
     } if (lector.equals("array identificador asignación valor fin")){
         System.out.println("sintaxis correcta");
-    } else {
+    } 
+    else {
         System.out.println("error sintactico");
     } return "Syntaxis revisada";
-}
+    }
 }

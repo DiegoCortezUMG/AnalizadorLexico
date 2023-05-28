@@ -9,8 +9,7 @@ import java.io.PrintStream;
 *Definición de tokens y patrones
 */
 public class Tokens{
-    String lector="";
-    File salida = new File("src/lexical/analizer/SalidaLex");
+    File salida = new File("src/lexical/analizer/SalidaSin");
     PrintStream stream;
     //declaración de tokens
     ArrayList<String> palabrasReservadas = new ArrayList<>(Arrays.asList("jclase","jestatico","jvoid","sellado","abstracto","clase", "jEscribir", "jent","jent[]","booleano", "const", "raiz",
@@ -51,19 +50,18 @@ public class Tokens{
                 String result = checkToken(token);
                 if (null != result){
                 if(!result.equals("unknown")){
-                    System.out.println(token + " | "+ result + " |" + i);
+                    System.out.println(token + " | "+ result + " |" + i + " : " + token);
                 }
                 else {
                     String subToken = token.substring(0, token.length() - 1);
                     result = checkToken(subToken);
                     if(!result.equals("unknown")) {
-                        System.out.println(result + " : " +subToken);
-                        //System.out.println(subToken + " | "+ result + " |" + i);
+                        System.out.println(subToken+" | "+result+" |"+i+ " : "+subToken+"hola2");
                         String lastToken = token.substring(token.length() - 1, token.length());
                         result = checkToken(lastToken);
                         if(!result.equals("unknown")) {
-                            System.out.println(result + " : " +lastToken);
-                            //System.out.println(lastToken+ " | "+ result + " |" + i);
+                            //System.out.println(result + " : " +lastToken);
+                            System.out.println(lastToken+" | "+result+" | "+i+"hola");
                         }
                         else {
                             System.err.println("Error: No pertenece al lenguage");
