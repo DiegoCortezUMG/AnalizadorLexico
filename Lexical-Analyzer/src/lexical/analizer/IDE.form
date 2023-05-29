@@ -42,8 +42,9 @@
                   </Group>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                      <Component id="CargaArchivo" min="-2" max="-2" attributes="0"/>
+                      <Component id="AnLex" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="AnSintax" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -69,7 +70,10 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="CargaArchivo" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="AnLex" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AnSintax" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -91,12 +95,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="CargaArchivo">
+    <Component class="javax.swing.JButton" name="AnLex">
       <Properties>
         <Property name="text" type="java.lang.String" value="Analisis L&#xe9;xico"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CargaArchivoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnLexActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -138,6 +142,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Salida:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="AnSintax">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Analisis Sint&#xe1;ctico"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnSintaxActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

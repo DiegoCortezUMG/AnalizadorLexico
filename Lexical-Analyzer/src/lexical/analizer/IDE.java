@@ -10,15 +10,14 @@ package lexical.analizer;
  */
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +30,11 @@ public class IDE extends javax.swing.JFrame {
     /**
      * Creates new form IDE
      */
-    public IDE() {
+    File salida = new File("src/lexical/analizer/SalidaSin");
+    PrintStream stream;
+    public IDE() throws IOException{
+        this.stream = new PrintStream(salida);
+        System.setOut(stream);
         initComponents();
     }
 
@@ -46,12 +49,13 @@ public class IDE extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         TextoEntrada = new javax.swing.JTextArea();
-        CargaArchivo = new javax.swing.JButton();
+        AnLex = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         SalidaLexico = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        AnSintax = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,10 +63,10 @@ public class IDE extends javax.swing.JFrame {
         TextoEntrada.setRows(5);
         jScrollPane1.setViewportView(TextoEntrada);
 
-        CargaArchivo.setText("Analisis Léxico");
-        CargaArchivo.addActionListener(new java.awt.event.ActionListener() {
+        AnLex.setText("Analisis Léxico");
+        AnLex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CargaArchivoActionPerformed(evt);
+                AnLexActionPerformed(evt);
             }
         });
 
@@ -79,6 +83,13 @@ public class IDE extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Salida:");
+
+        AnSintax.setText("Analisis Sintáctico");
+        AnSintax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnSintaxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,8 +110,9 @@ public class IDE extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(CargaArchivo)))
+                        .addComponent(AnLex)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AnSintax)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,14 +131,16 @@ public class IDE extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CargaArchivo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AnLex)
+                    .addComponent(AnSintax))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CargaArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaArchivoActionPerformed
+    private void AnLexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnLexActionPerformed
         // EL archivo se imprime a la jTextArea
     JFileChooser fileChooser = new JFileChooser(); // crea un objeto JFileChooser
     int seleccion = fileChooser.showOpenDialog(this); // muestra el cuadro de diálogo "Abrir archivo"
@@ -153,7 +167,7 @@ public class IDE extends javax.swing.JFrame {
         }
         // Cierra el flujo de tokens
         br.close();
-        
+        //Sintaxis sintax = new Sintaxis(strLine);
         Tokens token = new Tokens(lines);
         //System.out.println();
         int resp = token.lexicAnalizer();
@@ -162,10 +176,7 @@ public class IDE extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //Se imprime el resultado (escrito al "archivo SalidaLex") en la otra text area
         try {
-            //FileInputStream fstream = new FileInputStream("src/lexical/analizer/SalidaLex");
-            //String nombre = archivo.getPath(); // obtiene la ruta del archivo seleccionado
             FileReader lector = new FileReader("src/lexical/analizer/SalidaLex");
             BufferedReader lectorb = new BufferedReader(lector);
             SalidaLexico.read(lectorb,null);
@@ -177,8 +188,57 @@ public class IDE extends javax.swing.JFrame {
             Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    }//GEN-LAST:event_CargaArchivoActionPerformed
+    }//GEN-LAST:event_AnLexActionPerformed
 
+    private void AnSintaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnSintaxActionPerformed
+    JFileChooser fileChooser = new JFileChooser(); // crea un objeto JFileChooser
+    int seleccion = fileChooser.showOpenDialog(this); // muestra el cuadro de diálogo "Abrir archivo"
+    if (seleccion == JFileChooser.APPROVE_OPTION) { // si se selecciona un archivo
+        File archivo = fileChooser.getSelectedFile(); // obtiene el archivo seleccionado
+        try {
+            FileInputStream fstream = new FileInputStream(archivo);
+            String nombre = archivo.getPath(); // obtiene la ruta del archivo seleccionado
+            FileReader lector = new FileReader(nombre);
+            BufferedReader lectorb = new BufferedReader(lector);
+            TextoEntrada.read(lectorb,null);
+            lectorb.close();
+            TextoEntrada.requestFocus();
+            InputStream entrada = new FileInputStream(archivo); 
+        // entrada convierte el archivo a texto ara que lea el analizador
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(entrada));) {
+            StringBuilder codigo = new StringBuilder();
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                codigo.append(linea).append("\n");
+            }
+            Sintaxis analizador = new Sintaxis(codigo.toString());
+            boolean esSintacticamenteCorrecto = analizador.AnSintax();
+            if (esSintacticamenteCorrecto) {
+                System.out.println("El código es sintácticamente correcto");
+            } else {
+                System.out.println("El código contiene errores de sintaxis");
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            FileReader lector = new FileReader("src/lexical/analizer/SalidaSin");
+            BufferedReader lectorb = new BufferedReader(lector);
+            SalidaLexico.read(lectorb,null);
+            lectorb.close();
+            SalidaLexico.requestFocus();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }//GEN-LAST:event_AnSintaxActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -228,13 +288,18 @@ public class IDE extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IDE().setVisible(true);
+                try {
+                    new IDE().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(IDE.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CargaArchivo;
+    private javax.swing.JButton AnLex;
+    private javax.swing.JButton AnSintax;
     private javax.swing.JTextArea SalidaLexico;
     private javax.swing.JTextArea TextoEntrada;
     private javax.swing.JLabel jLabel1;
