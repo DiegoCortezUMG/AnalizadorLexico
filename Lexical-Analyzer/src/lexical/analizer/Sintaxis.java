@@ -7,6 +7,7 @@ package lexical.analizer;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,6 +16,8 @@ import java.util.regex.Pattern;
  * @author Usuario
  */
 public class Sintaxis {
+    File salida = new File("src/lexical/analizer/SalidaSin");
+    PrintStream stream;
     ArrayList<String> tipos = new ArrayList<>(Arrays.asList("jent","jflota","jdoble","jconst"));
     ArrayList<String> delimitadores = new ArrayList<>(Arrays.asList(";",":",",","{","}"));
     ArrayList<String> comparadores = new ArrayList<>(Arrays.asList("=:=","!=",">","<",">=","<=","++","&&"));
@@ -37,6 +40,8 @@ public class Sintaxis {
     public Sintaxis(String codigo) throws IOException{
         this.codigo = codigo;
         this.indice = 0;
+        this.stream = new PrintStream(salida);
+        System.setOut(stream);
     }
     public boolean AnSintax() {
         try {
@@ -61,8 +66,16 @@ public class Sintaxis {
             sentenciaIf(linea);
         } if (linea.startsWith("jEscribir")){
             sentenciaPrint(linea);
+        } if(linea.startsWith("jparacada")){
+            sentenciaWhile(linea);
+        } if(linea.contains((CharSequence) tipos)){
+            asignacion(linea);
         }
         // Aquí puedes agregar más reglas para analizar otras sentencias
+    }
+    private void asignacion(String linea){
+        matchAR(tipos,linea);
+        match("=",linea);
     }
     private void sentenciaIf(String linea) {
         match("jsi", linea);
@@ -74,17 +87,29 @@ public class Sintaxis {
     private void sentenciaPrint(String linea) {
         match("jEscribir", linea);
         match("(", linea);
-        matchRE(identificador,linea);
+        matchRE(textoString,linea);
+        match(")", linea);
+        match(".",linea);
+    }
+    private void sentenciaWhile(String linea){
+        match("jparacada", linea);
+        match("(", linea);
+        expresion(linea);
         match(")", linea);
         bloque(linea);
-        if (match("else", linea)) {
-            bloque(linea);
-        }
     }
     private void expresion(String linea) {
         matchRE(identificador,linea);
         matchAR(comparadores,linea);
         matchRE(identificador,linea);
+    }
+    private void bloquePrin(String linea) {
+        match(main,linea);
+        matchRE(identificador,linea);
+        match("{", linea);
+        // Implementa la lógica para analizar el contenido del bloque
+        // según tus necesidades
+        match("}", linea);
     }
     private void bloque(String linea) {
         match("{", linea);

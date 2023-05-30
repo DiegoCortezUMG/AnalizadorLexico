@@ -207,16 +207,18 @@ public class IDE extends javax.swing.JFrame {
         // entrada convierte el archivo a texto ara que lea el analizador
         try (BufferedReader br = new BufferedReader(new InputStreamReader(entrada));) {
             StringBuilder codigo = new StringBuilder();
-            String linea;
+            String linea; 
+            int n=1;
             while ((linea = br.readLine()) != null) {
+                n++;
                 codigo.append(linea).append("\n");
-            }
-            Sintaxis analizador = new Sintaxis(codigo.toString());
-            boolean esSintacticamenteCorrecto = analizador.AnSintax();
-            if (esSintacticamenteCorrecto) {
-                System.out.println("El código es sintácticamente correcto");
+                Sintaxis an = new Sintaxis(codigo.toString());
+            boolean revision = an.AnSintax();
+            if (revision=true) {
+                System.out.println("correcto");
             } else {
-                System.out.println("El código contiene errores de sintaxis");
+                System.out.println("Error de sintaxis en linea: "+n);
+            }
             }
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
