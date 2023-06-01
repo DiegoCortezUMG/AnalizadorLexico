@@ -26,7 +26,6 @@ public class Sintaxis {
     ArrayList<String> fin = new ArrayList<>(Arrays.asList("."));
     ArrayList<String> booleanos = new ArrayList<>(Arrays.asList("verdadero", "falso"));
     String asignacion = "=";
-    String main = "jPrincipal()";
     String clase = "([a-z]|(á,é,í,ó,ú)|[A-Z])([0-9]|(á,é,í,ó,ú)|[a-z]+|[A-Z]|_)*+[()]";
     String comentarios = "[//]([a-z]|(á,é,í,ó,ú)|[A-Z])([0-9]|(á,é,í,ó,ú)|[a-z]+|[A-Z]|_)*";
     String identificador = "[@]+([a-z]|(á,é,í,ó,ú)|[A-Z])([0-9]|(á,é,í,ó,ú)|[a-z]+|[A-Z]|_)*";
@@ -76,6 +75,7 @@ public class Sintaxis {
     private void asignacion(String linea){
         matchAR(tipos,linea);
         match("=",linea);
+        match(".",linea);
     }
     private void sentenciaIf(String linea) {
         match("jsi", linea);
@@ -104,7 +104,7 @@ public class Sintaxis {
         matchRE(identificador,linea);
     }
     private void bloquePrin(String linea) {
-        match(main,linea);
+        match("jestatico jvoid jprincipal ( jcad[] arg ).",linea);
         matchRE(identificador,linea);
         match("{", linea);
         // Implementa la lógica para analizar el contenido del bloque
@@ -128,7 +128,7 @@ public class Sintaxis {
         return false;
     }
     private boolean matchAR(ArrayList<String> array, String token) {
-        if (this.main.contains(token)) {
+        if (array.contains(token)) {
             indice += token.length();
             return true;
         }
